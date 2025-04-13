@@ -1,266 +1,146 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Colic Awareness - Group 5 | 2BSN-D</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, #fce4ec, #e1bee7);
-            color: #444;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            animation: fadeIn 1s ease-out;
-        }
+  <meta charset="UTF-8" />
+  <title>Colic Awareness - Group 5 | 2BSN-D</title>
+  <style>
+    /* Your existing styles remain unchanged */
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    .sticker {
+      position: absolute;
+      width: 70px;
+      z-index: 1;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.9;
+    }
 
-        header {
-            background-color: #ba68c8;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            animation: slideIn 1s ease-out;
-        }
+    .sticker.left-top {
+      top: 15px;
+      left: 15px;
+    }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(-30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+    .sticker.right-bottom {
+      bottom: -30px;
+      right: -30px;
+    }
 
-        header h1 {
-            font-family: 'Georgia', serif;
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            animation: bounceIn 1s ease-out;
-        }
+    /* Floating icons for sections */
+    .decorative-icons::before,
+    .decorative-icons::after {
+      content: '';
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
 
-        @keyframes bounceIn {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            60% {
-                transform: translateY(10px);
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+    .decorative-icons::before {
+      width: 40px;
+      height: 40px;
+      top: 20px;
+      left: 10%;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+    }
 
-        header p {
-            font-size: 1.1em;
-            font-weight: 300;
-        }
+    .decorative-icons::after {
+      width: 35px;
+      height: 35px;
+      bottom: 30px;
+      right: 15%;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/2784/2784485.png');
+    }
 
-        .container {
-            padding: 40px 25px;
-            max-width: 900px;
-            margin: 40px auto;
-            background-color: #fffafc;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            position: relative;
-            animation: fadeInUp 1s ease-out;
-        }
+    .star {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.4;
+      animation: twinkle 5s infinite ease-in-out;
+      z-index: 0;
+    }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-        .main-image {
-            width: 100%;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.2); }
+    }
 
-        .main-image:hover {
-            transform: scale(1.05);
-        }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
 
-        h2 {
-            color: #c2185b;
-            margin-top: 30px;
-            border-bottom: 2px solid #f8bbd0;
-            padding-bottom: 5px;
-            animation: fadeInLeft 1s ease-out;
-        }
+      .container {
+        padding: 25px 15px;
+      }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        ul {
-            padding-left: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.1em;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .team-section {
-            margin: 50px auto;
-            max-width: 900px;
-            text-align: center;
-            background: #fff0f5;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .team-section h2 {
-            color: #ad1457;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            animation: fadeInUp 1.2s ease-out;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            padding: 10px;
-        }
-
-        .member {
-            background: #fce4ec;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, background 0.3s;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .member:hover {
-            transform: scale(1.05);
-            background: #f8bbd0;
-        }
-
-        .member img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-
-        .nickname {
-            display: block;
-            margin-top: 5px;
-            font-style: italic;
-            color: #6a1b9a;
-            font-size: 0.95em;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px 20px;
-            background-color: #f8bbd0;
-            color: white;
-            margin-top: 60px;
-            font-size: 0.95em;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-
-            .container {
-                padding: 25px 15px;
-            }
-
-            .member img {
-                width: 60px;
-                height: 60px;
-            }
-        }
-    </style>
+      .member img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Colic Awareness Campaign</h1>
-        <p>Presented by Group 5 – Sanchez, Surio, Samson, Sarmiento, Semira, & Soberano | 2BSN-D</p>
-    </header>
+  <!-- Floating Stars -->
+  <div class="star" style="top: 80px; left: 20%;"></div>
+  <div class="star" style="top: 150px; right: 25%;"></div>
+  <div class="star" style="bottom: 100px; left: 10%;"></div>
+  <div class="star" style="bottom: 50px; right: 18%;"></div>
 
-    <div class="container">
-        <img src="https://drgolly.com/wp-content/uploads/2022/08/baby-crying-1024x683.jpg" alt="Crying Baby" class="main-image">
+  <header class="decorative-icons">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL4Kvv1kHYUMGcMiuvRz9OVlUJUY7aSy6KwQ&s" alt="Cute Sticker" class="sticker left-top">
+    <h1>Colic Awareness Campaign</h1>
+    <p>Presented by Group 5 – Sanchez, Surio, Samson, Sarmiento, Semira, & Soberano | 2BSN-D</p>
+  </header>
 
-        <h2>What is Colic?</h2>
-        <p>
-            Colic is a common condition in infants where they cry for extended periods without an obvious cause. It usually starts a few weeks after birth and often improves by the age of 3–4 months. Though it's not harmful, it can be very distressing for both babies and parents.
-        </p>
+  <div class="container">
+    <img src="https://drgolly.com/wp-content/uploads/2022/08/baby-crying-1024x683.jpg" alt="Crying Baby" class="main-image">
 
-        <h2>Signs and Symptoms</h2>
-        <ul>
-            <li>Intense crying episodes, often in the evening</li>
-            <li>Clenched fists and arched back while crying</li>
-            <li>Difficulty being consoled</li>
-            <li>Flushed face and tight abdomen</li>
-        </ul>
+    <h2>What is Colic?</h2>
+    <p>Colic is a common condition in infants where they cry for extended periods without an obvious cause. It usually starts a few weeks after birth and often improves by the age of 3–4 months. Though it's not harmful, it can be very distressing for both babies and parents.</p>
 
-        <h2>Tips for Parents</h2>
-        <ul>
-            <li>Hold and soothe the baby gently</li>
-            <li>Use white noise or soft music</li>
-            <li>Try tummy time and gentle rocking</li>
-            <li>Check for feeding issues or allergies</li>
-            <li>Don't hesitate to seek support from healthcare professionals</li>
-        </ul>
+    <h2>Signs and Symptoms</h2>
+    <ul>
+      <li>Intense crying episodes, often in the evening</li>
+      <li>Clenched fists and arched back while crying</li>
+      <li>Difficulty being consoled</li>
+      <li>Flushed face and tight abdomen</li>
+    </ul>
 
-        <h2>Our Mission</h2>
-        <p>
-            As nursing students from 2BSN-D, Group 5 – Colic, our goal is to raise awareness about colic and support families by providing accurate, compassionate, and helpful information.
-        </p>
-    </div>
+    <h2>Tips for Parents</h2>
+    <ul>
+      <li>Hold and soothe the baby gently</li>
+      <li>Use white noise or soft music</li>
+      <li>Try tummy time and gentle rocking</li>
+      <li>Check for feeding issues or allergies</li>
+      <li>Don't hesitate to seek support from healthcare professionals</li>
+    </ul>
 
-    <div class="team-section">
-       <h2>Meet the Colic Team 💗🩺</h2>
-        <div class="team-grid">
-            <div class="member">
-                <img src="https://scontent.fmnl16-1.fna.fbcdn.net/v/t39.30808-1/468649149_10230917416712643_3027700444134113396_n.jpg?stp=dst-jpg_s100x100_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeF4NsBLTVGG3ZpiM4kK3aD64Gqfb0HszPLgap9vQezM8r3jif5qMkqikhiJZ25NjudofekSxEwIvDBBVlpJCN3Z&_nc_ohc=ZjPl3FGue0EQ7kNvwEgsBcO&_nc_oc=AdmVCaNMLQ7rnmDQuFGp0Kon2z5FaLqG8TNdVyVnSsZK1HRicEZ3CgirGyQVj2_S_sU&_nc_zt=24&_nc_ht=scontent.fmnl16-1.fna&_nc_gid=wC1WcDiJtr9WVziDGIjlDQ&oh=00_AfHWbzkNbhBnlnRzcFOsfdg2g7PEjeFge9pVOccZDRfCQw&oe=6801AF14" alt="Sanchez Avatar">
-                <p><strong>Sanchez</strong></p>
-                <span class="nickname">"Sanchez, RN 2027"</span>
+    <h2>Our Mission</h2>
+    <p>As nursing students from 2BSN-D, Group 5 – Colic, our goal is to raise awareness about colic and support families by providing accurate, compassionate, and helpful information.</p>
+  </div>
+
+  <div class="team-section">
+    <h2>Meet the Colic Team 💗🩺</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img src="https://scontent.fmnl16-1.fna.fbcdn.net/v/t39.30808-1/468649149_10230917416712643_3027700444134113396_n.jpg?stp=dst-jpg_s100x100_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeF4NsBLTVGG3ZpiM4kK3aD64Gqfb0HszPLgap9vQezM8r3jif5qMkqikhiJZ25NjudofekSxEwIvDBBVlpJCN3Z&_nc_ohc=ZjPl3FGue0EQ7kNvwEgsBcO&_nc_oc=AdmVCaNMLQ7rnmDQuFGp0Kon2z5FaLqG8TNdVyVnSsZK1HRicEZ3CgirGyQVj2_S_sU&_nc_zt=24&_nc_ht=scontent.fmnl16-1.fna&_nc_gid=wC1WcDiJtr9WVziDGIjlDQ&oh=00_AfHWbzkNbhBnlnRzcFOsfdg2g7PEjeFge9pVOccZDRfCQw&oe=6801AF14" alt="Sanchez Avatar">
+        <p><strong>Sanchez</strong></p>
+        <span class="nickname">"Sanchez, RN 2027"</span>
+      </div>
+  </div>
+
             </div>
             <div class="member">
                 <img src="https://scontent.fmnl16-1.fna.fbcdn.net/v/t39.30808-1/422169035_7060096214097694_539450156867731607_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGcoXFtHXABASI8j51EN2RO55EUQchtOErnkRRByG04SvrAQEaGmXi-91SlEDFCqgFf4cxFvJvinTtSFd5Qw-cK&_nc_ohc=m38wfIsOBtMQ7kNvwFUVr6h&_nc_oc=AdkTX92_0EZ1uKVPceL3ZYuYtoYM215xw7lc0tnUYIDM5hKT3gaCYIKwLXsUFQlfuUE&_nc_zt=24&_nc_ht=scontent.fmnl16-1.fna&_nc_gid=u6UAmpmbswhogxmC79n5eQ&oh=00_AfGpLOlwWyV-R-ZOJ8wlPB2_KyQc9iFBTFBv4S0LSG30Cw&oe=6801AEF9" alt="Surio Avatar">
